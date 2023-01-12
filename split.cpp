@@ -13,11 +13,29 @@ the function below should be the only one in this file.
 #include "split.h"
 
 /* Add a prototype for a helper function here if you need */
+void push_back(Node*&target, Node*& added);
+  
 
 void split(Node*& in, Node*& odds, Node*& evens)
 {
-  /* Add code here */
-// WRITE YOUR CODE HERE
+  if (in == nullptr) {
+    return;
+  }
+  if (in->value % 2 == 0) {
+    push_back(evens, in);
+  } else {
+    push_back(odds, in);
+  }
+  split(in, odds, evens);
 }
 
 /* If you needed a helper function, write it here */
+void push_back(Node*& target, Node*& in) {
+  if (target == nullptr) {
+    target = in;
+    in = in->next;
+    target->next = nullptr;
+  } else {
+    push_back(target->next, in);
+  }
+}
