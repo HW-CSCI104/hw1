@@ -5,6 +5,8 @@
 #define ARRSIZE 10
 class ULListStr {
  public:
+
+
   struct Item {
     std::string val[ARRSIZE];
     /**
@@ -28,6 +30,12 @@ class ULListStr {
       prev = next = NULL;
     }
   };
+
+
+
+
+
+  
 
   /**
    * Default constructor - empty list
